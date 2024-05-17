@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    {% include 'base/courses_table.html' %}
+    {% include 'base/pagination.html' %}
+    {% if perms.course.add_course %}
+    <a href="{% url 'create_course' %}">
+        <button class="btn-sub">Добавить курс</button>
+    </a>
+    {% endif %}
+</div>
+
+{% endblock content%}

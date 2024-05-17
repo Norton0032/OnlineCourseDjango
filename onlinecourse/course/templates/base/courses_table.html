@@ -1,0 +1,24 @@
+<table class="table-info">
+    <thead>
+    <tr>
+        {% if perms.course.delete_course %}
+        <th class="th-info">ID</th>
+        {% endif %}
+        <th class="th-info">Название</th>
+        <th class="th-info">Цена</th>
+        <th class="th-info">Ссылка</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+    <tr>
+        {% if perms.course.delete_course %}
+        <td class="td-info">{{ course.id }}</td>
+        {% endif %}
+        <td class="td-info">{{ course.name }}</td>
+        <td class="td-info">{{ course.price }}</td>
+        <td class="td-info"><a href="{% url 'course' course.id %} " class="a-info">Ссылка</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

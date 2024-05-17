@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн курсы</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<header>
+    <nav class="nav-head">
+        <ul>
+            <li><a href="{%url 'courses'%}">Курсы</a></li>
+            <li><a href="{%url 'groups'%}">Группы</a></li>
+            <li><a href="{%url 'users'%}">Пользователи</a></li>
+            {% if user.is_authenticated%}
+            <li class="last"><a href="{% url 'profile' %}">{{user.username }} </a>|
+                <form class="form-inline" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Выйти</button>
+                </form>
+            </li>
+            {% else %}
+            <li class="last"><a href="{% url 'login' %}"> Вход</a> | <a href=" {% url 'register' %}"> Регистрация</a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="base-h1">{{title}}</h1>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <!-- Футер сайта -->
+</footer>
+</body>
+</html>

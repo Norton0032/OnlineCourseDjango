@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    <h2 class="h-info">Название курса: {{name}}</h2>
+    <p class="p-info">Описание курса: {{description}}</p>
+    <p class="p-info">Цена курса: {{price}}</p>
+
+    {% if perms.course.add_course %}
+    <h3 class="h-info">Группы входящие в этот курс:</h3>
+    {% include 'base/groups_table.html' %}
+    {% endif %}
+    {% if perms.course.change_course %}
+    <a href="edit/" class="info-edit-link">Редактировать курс</a>
+    {% endif %}
+    {% if perms.course.delete_course %}
+    <a href="delete/" class="info-delete-link">Удалить курс</a>
+    {% endif %}
+</div>
+{% include 'base/button_prev.html '%}
+{% endblock content %}
