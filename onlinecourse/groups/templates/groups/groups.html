@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    {% include 'base/groups_table.html' %}
+    {% include 'base/pagination.html' %}
+    {% if perms.groups.add_grouponcourse %}
+    <a href="{% url 'create_group' %}">
+        <button class="btn-sub">Добавить группу</button>
+    </a>
+    {% endif %}
+</div>
+
+{% endblock content%}
