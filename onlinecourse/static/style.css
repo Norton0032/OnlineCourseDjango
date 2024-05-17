@@ -1,0 +1,419 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Стили для таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Добавлено для разделения таблицы и кнопки */
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Стили для меню */
+header {
+    background-color: #333;
+    padding: 20px 0;
+}
+
+.nav-head ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.nav-head ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.nav-head ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav-head ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Добавленные стили для формы */
+.form-inline {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.form-inline {
+    background-color: #333;
+    border: none;
+
+}
+
+.form-inline button {
+    background-color: transparent;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-inline button:hover {
+    color: #ffcc00;
+}
+
+/* Стили для формы создания курса */
+.form-error {
+    color: red;
+    margin-top: 5px;
+}
+
+.form-lable {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form textarea {
+    width: calc(100% - 20px); /* Изменено, чтобы учитывать внутренний отступ */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px; /* Добавлено для выравнивания с сообщениями об ошибках */
+}
+
+form textarea {
+    resize: none
+}
+
+
+.btn-sub { /* Общие стили для кнопок в форме и под ней */
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Изменено на block для выравнивания кнопки "Назад" */
+    margin: 10px auto; /* Центрирование кнопки "Отправить" и "Назад" */
+}
+
+.btn-sub:hover { /* Изменено для соответствия общим стилям кнопок */
+    background-color: #ffcc00;
+}
+
+
+/* Дополнение стилей для пагинации */
+.list-page {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.list-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-page ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.list-page ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.list-page ul li a:hover {
+    background-color: #f2f2f2;
+}
+
+.current-page a {
+    pointer-events: none; /* Добавлено свойство, чтобы ссылку нельзя было нажать */
+    background-color: #ccc; /* Изменен цвет фона ссылки на текущей странице */
+}
+
+.profile-div {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.a_change_pass {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.a_change_pass:hover {
+    text-decoration: underline;
+}
+
+/* Media query for phones */
+@media screen and (max-width: 480px) {
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn-sub {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+.file-input {
+    display: none;
+}
+
+.file-input-label {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.file-input-label:hover {
+    background-color: #0056b3;
+}
+
+.div-label-img {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Styles for select elements */
+.form-data-input {
+    width: calc(33.33% - 10px); /* Adjust width as needed */
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    appearance: none; /* Remove default arrow */
+    background-color: #fff; /* Background color */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E"); /* Custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Styles for select when focused */
+.form-data-input:focus {
+    outline: none;
+    border-color: #007bff; /* Change border color on focus */
+}
+
+/* Styles for labels */
+.form-lable {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Styles to place selects under labels */
+.div-label-select {
+    display: flex;
+    align-items: center;
+}
+
+.div-label-select > label {
+    margin-right: 10px;
+}
+
+/* Additional styles for consistency */
+.form-input {
+    width: calc(100% - 120px); /* Adjust width as needed */
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Styles for h1 */
+.base-h1 {
+    font-size: 36px; /* Increased font size */
+    font-weight: bold;
+    color: #333; /* Text color */
+    margin-bottom: 20px; /* Adjust margin as needed */
+    text-align: center; /* Center align */
+}
+
+.select-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.select-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.select-multi-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: auto; /* Присваиваем высоту авто, чтобы сделать множественный выбор более удобным */
+}
+
+.select-multi-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для опций */
+
+.select-multi-input option {
+    padding: 5px;
+}
+
+
+.info-one {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h2.h-info {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p.p-info {
+    color: #666;
+    line-height: 1.6;
+}
+
+table.table-info {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th.th-info, td.td-info {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th.th-info {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+td.td-info {
+    background-color: #fff;
+}
+
+a.a-info {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a.a-info:hover {
+    color: #0056b3;
+}
+
+.info-edit-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.info-edit-link:hover {
+    background-color: #0056b3;
+}
+
+.info-delete-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.info-delete-link:hover {
+    background-color: #c82333;
+}
+
+.btn-sub-delete {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Изменено на block для выравнивания кнопки "Назад" */
+    margin: 10px auto; /* Центрирование кнопки "Отправить" и "Назад" */
+}
+
+.btn-sub-delete:hover { /* Изменено для соответствия общим стилям кнопок */
+    background-color: #c82333;
+}
