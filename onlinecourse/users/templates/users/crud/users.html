@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    {% include 'base/users_table.html' %}
+    {% include 'base/pagination.html' %}
+    {% if perms.users.add_user %}
+    <a href="{% url 'create_user' %}">
+        <button class="btn-sub">Добавить пользователя</button>
+    </a>
+    {% endif %}
+</div>
+{% endblock content%}

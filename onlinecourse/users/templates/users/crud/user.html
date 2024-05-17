@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    {% if user.photo %}
+    <div class="profile-div"><img src="{{ user.photo.url }}" class="profile-img"></div>
+    {% else %}
+    <div class="profile-div"><img src="{{ default_img }}" class="profile-img"></div>
+    {% endif %}
+    <h2 class="h-info">Имя пользователя: {{username}}</h2>
+    <p class="p-info">Почта: {{email}}</p>
+    <p class="p-info">Имя: {{first_name}}</p>
+    <p class="p-info">Фамилия: {{last_name}}</p>
+    <p class="p-info">Дата рождения: {{date_birth}}</p>
+    <p class="p-info">Роли: {{role}}</p>
+
+    <h3 class="h-info">Группы пользователя:</h3>
+    {% include 'base/groups_table.html' %}
+    {% if perms.users.change_user %}
+    <a href="edit/" class="info-edit-link">Редактировать пользователя</a>
+    {% endif %}
+    {% if perms.users.delete_user %}
+    <a href="delete/" class="info-delete-link">Удалить пользователя</a>
+    {% endif %}
+</div>
+{% include 'base/button_prev.html '%}
+{% endblock content %}

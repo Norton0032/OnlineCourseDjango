@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if user.photo %}
+    <div class="profile-div"><img src="{{ user.photo.url }}" class="profile-img"></div>
+    {% else %}
+    <div class="profile-div"><img src="{{default_img}}" class="profile-img"></div>
+    {% endif %}
+    <div class="form-error">{{form.non_field_errors}}</div>
+    {% for f in form %}
+    {% if f.label == 'Изменить фото' %}
+    <div class="div-label-img"><label class="file-input-label" for="{{ f.id_for_label }}">{{f.label}}</label>{{ f }}</div>
+    {% elif f.label == 'Дата рождения' %}
+        <div><label class='form-lable div-label-select' for="{{ f.id_for_label }}">{{f.label}}</label>{{ f }}</div>
+    {% else %}
+    <div><label class="form-lable" for="{{ f.id_for_label }}">{{f.label}}</label>{{ f }}</div>
+    {% endif %}
+    <div class="form-error">{{f.errors}}</div>
+    {% endfor %}
+    <button type="submit" class="btn-sub">Сохранить</button>
+    <div class="profile-div"><a href="{% url 'password-change' %}" class="a_change_pass">Сменить пароль</a></div>
+</form>
+{% endblock content%}
