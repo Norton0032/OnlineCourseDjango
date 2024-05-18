@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from pprint import pprint
+
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
@@ -22,11 +24,15 @@ from course.views import page_not_found
 from onlinecourse import settings
 
 urlpatterns = [
+    path('', include('users.urls')),
     path('admin/', admin.site.urls),
     path('courses/', include('course.urls')),
     path('groups/', include('groups.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('', include('users.urls'))
 ]
+# Добавьте следующие две строки для обработки статических файлов
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+print(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
+print(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 handler404 = page_not_found
