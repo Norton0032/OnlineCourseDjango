@@ -1,0 +1,22 @@
+[
+  {
+    "model": "course.course",
+    "pk": 12,
+    "fields": {
+      "name": "json1",
+      "price": 1000,
+      "time_create": "2024-05-16 01:12:06.550 +0300",
+      "time_update": "2024-05-16 01:12:06.550 +0300"
+    }
+  },
+  {
+    "model": "course.course",
+    "pk": 13,
+    "fields": {
+      "name": "json2",
+      "price": 1000,
+      "time_create": "2024-05-16 01:12:06.550 +0300",
+      "time_update": "2024-05-16 01:12:06.550 +0300"
+    }
+  }
+]

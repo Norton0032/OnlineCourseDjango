@@ -1,0 +1,16 @@
+[
+  {
+    "model": "users.user",
+    "pk": 14,
+    "fields": {
+      "username": "root",
+      "first_name": "admin",
+      "last_name": "admin",
+      "password": "pbkdf2_sha256$720000$6edqYjngutLtrtyhbmNco5$331J+rWGhquYAC2LygBQ0nUpxQ/T9KCMEyJOb6L6zBo=",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "email": "root@mail.ru"
+    }
+  }
+]
