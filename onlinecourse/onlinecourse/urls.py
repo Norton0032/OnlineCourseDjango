@@ -18,9 +18,10 @@ from pprint import pprint
 
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.static import serve
 
-from course.views import page_not_found
+from course.views import page_not_found, permission_denied, bad_request, server_error
 from onlinecourse import settings
 
 urlpatterns = [
@@ -29,10 +30,16 @@ urlpatterns = [
     path('courses/', include('course.urls')),
     path('groups/', include('groups.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]
 # Добавьте следующие две строки для обработки статических файлов
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 print(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
 print(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
+print(urlpatterns)
 handler404 = page_not_found
+handler400 = bad_request
+handler403 = permission_denied
+handler500 = server_error
