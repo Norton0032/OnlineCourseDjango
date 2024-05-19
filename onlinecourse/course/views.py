@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.http import HttpResponseNotFound
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -34,8 +34,6 @@ class CourseShow(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
         context['grouponcourse'] = context['course'].grouponcourse_set.all()
         context['button_prev'] = self.request.META.get('HTTP_REFERER')
         return context
-
-
 
 
 class CreateCourse(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
@@ -88,4 +86,16 @@ class DeleteCourse(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
 
 
 def page_not_found(request, exception):
-    return HttpResponseNotFound("Страница не найдена")
+    return render(request, template_name="statuscode/404.html", context={"title": "Страница не найдена"})
+
+
+def server_error(request):
+    return render(request, template_name="statuscode/500.html", context={"title": "Ошибка сервера"})
+
+
+def permission_denied(request, exception):
+    return render(request, template_name="statuscode/403.html", context={"title": "Доступ запрещен"})
+
+
+def bad_request(request, exception):
+    return render(request, template_name="statuscode/400.html", context={"title": "Запрос отправлен с ошибкой"})

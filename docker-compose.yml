@@ -5,7 +5,8 @@ services:
     command: >
       sh -c "python onlinecourse/manage.py migrate &&
       python onlinecourse/manage.py loaddata onlinecourse/fixtures/data.json &&
-      python onlinecourse/manage.py runserver 0.0.0.0:8000"
+      python onlinecourse/manage.py collectstatic --noinput &&
+      python onlinecourse/manage.py runserver 0.0.0.0:8000 --insecure"
     volumes:
       - .:/app
     ports:
