@@ -1,1 +1,3 @@
-docker exec -it 320d5dd7c64b psql -U postgres - зайти в контейнер БД
+Онлайн-курс по подготовке к ЕГЭ.
+Для запуска проека нужно прописать docker compose up
+docker exec -it контейнер psql -U postgres - зайти в контейнер БД
