@@ -4,7 +4,6 @@
     <h2 class="h-info">Название курса: {{name}}</h2>
     <p class="p-info">Описание курса: {{description}}</p>
     <p class="p-info">Цена курса: {{price}}</p>
-
     {% if perms.course.add_course %}
     <h3 class="h-info">Группы входящие в этот курс:</h3>
     {% include 'base/groups_table.html' %}

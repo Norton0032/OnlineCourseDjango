@@ -85,7 +85,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
