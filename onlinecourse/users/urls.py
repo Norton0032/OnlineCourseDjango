@@ -26,7 +26,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('users/', views.UsersShow.as_view(), name='users'),
     path('users/<int:user>/', views.UserShow.as_view(), name='user'),
-    path('users/create', views.CreateUser.as_view(), name='create_user'),
+    path('users/create/', views.CreateUser.as_view(), name='create_user'),
     path('users/<int:user>/edit/', views.UpdateUser.as_view(), name='edit_user'),
     path('users/<int:user>/delete/', views.DeleteUser.as_view(), name='delete_user')
 ]

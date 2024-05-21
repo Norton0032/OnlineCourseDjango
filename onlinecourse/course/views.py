@@ -86,16 +86,16 @@ class DeleteCourse(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
 
 
 def page_not_found(request, exception):
-    return render(request, template_name="statuscode/404.html", context={"title": "Страница не найдена"})
+    return render(request, template_name="statuscode/404.html", context={"title": "Страница не найдена"}, status=404)
 
 
 def server_error(request):
-    return render(request, template_name="statuscode/500.html", context={"title": "Ошибка сервера"})
+    return render(request, template_name="statuscode/500.html", context={"title": "Ошибка сервера"}, status=500)
 
 
 def permission_denied(request, exception):
-    return render(request, template_name="statuscode/403.html", context={"title": "Доступ запрещен"})
+    return render(request, template_name="statuscode/403.html", context={"title": "Доступ запрещен"}, status=403)
 
 
 def bad_request(request, exception):
-    return render(request, template_name="statuscode/400.html", context={"title": "Запрос отправлен с ошибкой"})
+    return render(request, template_name="statuscode/400.html", context={"title": "Запрос отправлен с ошибкой"}, status=400)
