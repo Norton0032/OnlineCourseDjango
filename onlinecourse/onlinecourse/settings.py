@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'course.apps.CourseConfig',
     'users.apps.UsersConfig',
     'groups.apps.GroupsConfig',
+    'application.apps.ApplicationConfig',
     "debug_toolbar",
 ]
 

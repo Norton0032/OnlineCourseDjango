@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-error">{{form.non_field_errors}}</div>
+    {% for f in form %}
+    <div><label class="form-lable" for="{{ f.id_for_label }}">{{f.label}}</label>{{ f }}</div>
+    <div class="form-error">{{f.errors}}</div>
+    {% endfor %}
+
+    <button class="btn-sub" type="submit">Отправить</button>
+</form>
+{% include 'base/button_prev.html' %}
+{% endblock content%}

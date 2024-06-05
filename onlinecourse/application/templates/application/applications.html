@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="info-one">
+    {% if perms.users.add_user %}
+    <p class="p-info"> Все заявки </p>
+    {% else %}
+    <p class="p-info"> Ваши активные заявки </p>
+    {% endif %}
+    <table class="table-info">
+        <thead>
+        <tr>
+            {% if perms.users.add_user %}
+            <th class="th-info">ID</th>
+            {% endif %}
+            <th class="th-info">Название курса и цена</th>
+            <th class="th-info">Логин пользователя</th>
+            {% if perms.users.add_user %}
+            <th class="th-info">Обработать заявку</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for app in applications %}
+        <tr>
+            {% if perms.users.add_user %}
+            <td class="td-info">{{ app.id }}</td>
+            {% endif %}
+            <td class="td-info">{{ app.course }}</td>
+            <td class="td-info">{{ app.user }}</td>
+            {% if perms.users.add_user %}
+            <td class="td-info"><a href="{% url 'delete_app' app.id %} " class="a-info">Просмотр</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% include 'base/pagination.html' %}
+</div>
+{% endblock content%}

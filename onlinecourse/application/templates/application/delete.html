@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p class="p-info"> Пользователь: {{user}}</p>
+    <p class="p-info"> Курс: {{course}}</p>
+    {{ form.as_p }}
+    <button class="btn-sub" type="submit">Отправить</button>
+</form>
+{% include 'base/button_prev.html' %}
+{% endblock content%}
+
